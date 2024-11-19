@@ -39,12 +39,14 @@ function createCalendar(year, month){
 
   let selectedDate = document.querySelectorAll('td');
 
-selectedDate.forEach(function(selected){
-  selected.addEventListener('click', function(){
-    console.log(selected.getAttribute('data-day'));
-    let clickedDate = document.getElementById('clickedDate');
-    clickedDate.innerHTML = `${currentYear}년 ${currentMonth}월 ${selected.getAttribute('data-day')}일`
-    selected.style.backGroundColor = 'lightblue';
+  selectedDate.forEach(function(selected){
+    selected.addEventListener('click', function(){
+      console.log(selected.getAttribute('data-day'));
+      let clickedDate = document.getElementById('clickedDate');
+      clickedDate.innerHTML = `${currentYear}년 ${currentMonth}월 ${selected.getAttribute('data-day')}일`;
+      if(!selected.getAttribute('data-day')){
+        clickedDate.innerHTML = '';
+      }
   })
 });
 }
