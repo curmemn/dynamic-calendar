@@ -36,6 +36,17 @@ function createCalendar(year, month){
   }
   html += "</tr>";
   document.getElementById("calendarBody").innerHTML = html;
+
+  let selectedDate = document.querySelectorAll('td');
+
+selectedDate.forEach(function(selected){
+  selected.addEventListener('click', function(){
+    console.log(selected.getAttribute('data-day'));
+    let clickedDate = document.getElementById('clickedDate');
+    clickedDate.innerHTML = `${currentYear}년 ${currentMonth}월 ${selected.getAttribute('data-day')}일`
+    selected.style.backGroundColor = 'lightblue';
+  })
+});
 }
 
 //이전달 다음달 함수
@@ -52,32 +63,3 @@ function changeMonth(offset){
 }
 
 createCalendar(currentYear, currentMonth);
-
-
-let getDate = '';
-
-let selectedDate = document.querySelectorAll('td');
-
-selectedDate.forEach(function(selected){
-  selected.addEventListener('click', function(){
-    console.log(selected.getAttribute('data-day'));
-    let clickedDate = document.getElementById('clickedDate');
-    clickedDate.innerHTML = `${currentYear}년 ${currentMonth}월 ${selected.getAttribute('data-day')}일`
-    selected.style.backGroundColor = 'lightblue';
-  })
-});
-
-/* //클릭한 날짜  받아오기 함수
-function selectedDate(year, month, date){
-  getDate = new Date(year, month - 1 , date);
-  createCalendar(currentYear, currentMonth);
-  
-  function getSelectedDate(){
-    let clickedDate = document.getElementById('clickedDate');
-    if(getDate){
-      clickedDate.innerHTML = `${getDate.getFullYear()}년 ${getDate.getMonth() - 1}월 ${getDate.getDate()}일`
-    }
-  }
-  getSelectedDate();
-}
-*/
