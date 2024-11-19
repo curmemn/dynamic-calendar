@@ -24,7 +24,6 @@ function createCalendar(year, month){
   //날짜 채우기
   for(let day = 1; day <= lastDay.getDate(); day++){
     const currentDay = new Date(year, month -1, day).getDay();
-    document.querySelectorAll('tr').forEach
     html += `<td data-day="${day}">${day}</td>`;
     if(currentDay === 6){
       html += "</tr><tr>";
@@ -67,3 +66,18 @@ selectedDate.forEach(function(selected){
     selected.style.backGroundColor = 'lightblue';
   })
 });
+
+/* //클릭한 날짜  받아오기 함수
+function selectedDate(year, month, date){
+  getDate = new Date(year, month - 1 , date);
+  createCalendar(currentYear, currentMonth);
+  
+  function getSelectedDate(){
+    let clickedDate = document.getElementById('clickedDate');
+    if(getDate){
+      clickedDate.innerHTML = `${getDate.getFullYear()}년 ${getDate.getMonth() - 1}월 ${getDate.getDate()}일`
+    }
+  }
+  getSelectedDate();
+}
+*/
