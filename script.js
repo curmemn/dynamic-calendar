@@ -25,7 +25,7 @@ function createCalendar(year, month){
   for(let day = 1; day <= lastDay.getDate(); day++){
     const currentDay = new Date(year, month -1, day).getDay();
     document.querySelectorAll('tr').forEach
-    html += `<td>${day}</td>`;
+    html += `<td data-day="${day}">${day}</td>`;
     if(currentDay === 6){
       html += "</tr><tr>";
     }
