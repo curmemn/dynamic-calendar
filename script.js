@@ -55,9 +55,15 @@ function changeMonth(offset){
 createCalendar(currentYear, currentMonth);
 
 
-/* let clickedDate = '';
-//클릭한 날짜 표시 함수
-function clickDate(year, month, date){
-  clickedDate = new Date(year, month - 1 , date);
+let getDate = '';
 
-} */
+let selectedDate = document.querySelectorAll('td');
+
+selectedDate.forEach(function(selected){
+  selected.addEventListener('click', function(){
+    console.log(selected.getAttribute('data-day'));
+    let clickedDate = document.getElementById('clickedDate');
+    clickedDate.innerHTML = `${currentYear}년 ${currentMonth}월 ${selected.getAttribute('data-day')}일`
+    selected.style.backGroundColor = 'lightblue';
+  })
+});
