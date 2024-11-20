@@ -45,7 +45,7 @@ function createCalendar(year, month){
       let clickedDate = document.getElementById('clickedDate');
       clickedDate.innerHTML = `${currentYear}년 ${currentMonth}월 ${selected.getAttribute('data-day')}일`;
       if(!selected.getAttribute('data-day')){
-        clickedDate.innerHTML = '';
+        clickedDate.innerHTML = '날짜를 선택해주세요.';
       }
   })
 });
