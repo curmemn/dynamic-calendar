@@ -62,3 +62,16 @@ td{
   cursor: pointer;
   font-weight: 300;
 }
+
+td:hover{
+  background-color: #a4d1ff;
+}
+
+#clickedDate{
+  display: block;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  margin-top: 10px;
+  padding: 20px;
+  text-align: center;
+}
